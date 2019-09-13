@@ -28,9 +28,9 @@ todoRoutes.route('/add').post(function (req, res) {
   )
 });
 
-todoRoutes.route('./delete/:id').get(function (req, res, next) {
+todoRoutes.route('/delete/:id').get(function (req, res, next) {
   var id = req.params.id;
-  todo.findIdAndRemove(id, function (err, todo) {
+  todo.findByIdAndRemove(id, function (err, todo) {
     if (err) {
       return next(new Error('Todo was not found'))
     }
@@ -47,17 +47,17 @@ todoRoutes.route('/update/:id').post(function (req, res, next) {
       todo.name = req.body.name;
       todo.done = req.body.done;
 
-      todo.save({
-        function (error, todo) {
+      todo.save(function (error, todo) {
           if (error) {
-            res.statuts(400).send('Unable to update todo');
+            res.status(400).send('Unable to update todo');
           } else {
             res.status(200).json(todo);
           }
         }
-      })
+      );
     }
-  })
+  });
+
 });
 
 module.exports = todoRoutes;
