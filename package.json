@@ -13,7 +13,7 @@
     "bootstrap": "^4.3.1",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.7.0",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.4"
